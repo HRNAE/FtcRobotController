@@ -85,6 +85,11 @@ public class redRightOpenCV45pts extends LinearOpMode {
                 .waitSeconds(2)
                 .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .strafeRight(5)
+                .waitSeconds(2)
+                .strafeLeft(5.5)
+                .lineToSplineHeading(new Pose2d(-48,-34, Math.toRadians(180)))
+                .waitSeconds(3)
+                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .build();
 
         TrajectorySequence right = drive.trajectorySequenceBuilder(startPose2)
@@ -103,6 +108,11 @@ public class redRightOpenCV45pts extends LinearOpMode {
                 .waitSeconds(2)
                 .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .strafeLeft(7)
+                .waitSeconds(2)
+                .strafeRight(7)
+                .lineToSplineHeading(new Pose2d(-48,-34, Math.toRadians(180)))
+                .waitSeconds(3)
+                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .build();
         TrajectorySequence center = drive.trajectorySequenceBuilder(startPose2)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
@@ -118,6 +128,10 @@ public class redRightOpenCV45pts extends LinearOpMode {
                 })
 
                 .waitSeconds(2)
+                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
+                .waitSeconds(2)
+                .lineToSplineHeading(new Pose2d(-48,-34, Math.toRadians(180)))
+                .waitSeconds(3)
                 .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .build();
 
