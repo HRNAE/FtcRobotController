@@ -28,9 +28,9 @@ import org.openftc.easyopencv.OpenCvPipeline;
 import java.util.ArrayList;
 import java.util.List;
 
-@TeleOp(name = "redRightOpenCV45")
+@TeleOp(name = "blueLeftOpenCV45")
 
-public class redRightOpenCV45pts extends LinearOpMode {
+public class blueLeftOpenCV45pts extends LinearOpMode {
     Hware robot;
     double cX = 0;
     double cY = 0;
@@ -64,14 +64,14 @@ public class redRightOpenCV45pts extends LinearOpMode {
         Pose2d startPose2 = new Pose2d(12, -36, 270);
         Pose2d startPose3 = new Pose2d(12, -60, 270);
         Pose2d startPose4 = new Pose2d(12, -60, 270);
-        Pose2d startPose1 = new Pose2d(12, -60, 90);
+        Pose2d startPose1 = new Pose2d(12, 60, 270);
 
         //drive.setPoseEstimate(startPose);
         TrajectorySequence forward = drive.trajectorySequenceBuilder(startPose1)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
                 .build();
         TrajectorySequence left = drive.trajectorySequenceBuilder(startPose1)
-                .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(12,34,Math.toRadians(0)))
 
 
                 .UNSTABLE_addTemporalMarkerOffset(1, () -> { //outtake
@@ -85,21 +85,19 @@ public class redRightOpenCV45pts extends LinearOpMode {
 
 
                 .waitSeconds(2)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
-                .strafeRight(5)
+                .lineToSplineHeading(new Pose2d(48,34,Math.toRadians(180)))
+                .strafeLeft(7)
+                .lineToSplineHeading(new Pose2d(48,12,Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48, 12, Math.toRadians(180)))
                 .waitSeconds(5)
-                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(-48,-12, Math.toRadians(180)))
-                .waitSeconds(3)
-                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(48,-12, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,12, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,34, Math.toRadians(180)))
                 .build();
 
         TrajectorySequence right = drive.trajectorySequenceBuilder(startPose1)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
 
+
                 .UNSTABLE_addTemporalMarkerOffset(1, () -> { //outtake
                     robot.intakeRight.setPower(1);
                     robot.intakeLeft.setPower(1);
@@ -109,20 +107,19 @@ public class redRightOpenCV45pts extends LinearOpMode {
                     robot.intakeLeft.setPower(0);
                 })
 
+
                 .waitSeconds(2)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
-                .strafeLeft(7)
+                .lineToSplineHeading(new Pose2d(48,34,Math.toRadians(180)))
+                .strafeRight(7)
+                .lineToSplineHeading(new Pose2d(48,12,Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48, 12, Math.toRadians(180)))
                 .waitSeconds(5)
-                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(-48,-12, Math.toRadians(180)))
-                .waitSeconds(3)
-                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(48,-12, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,12, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,34, Math.toRadians(180)))
                 .build();
         TrajectorySequence center = drive.trajectorySequenceBuilder(startPose1)
-                .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(90)))
+                .lineToSplineHeading(new Pose2d(12,34,Math.toRadians(270)))
+
 
                 .UNSTABLE_addTemporalMarkerOffset(1, () -> { //outtake
                     robot.intakeRight.setPower(1);
@@ -133,16 +130,14 @@ public class redRightOpenCV45pts extends LinearOpMode {
                     robot.intakeLeft.setPower(0);
                 })
 
+
                 .waitSeconds(2)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,34,Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,12,Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48, 12, Math.toRadians(180)))
                 .waitSeconds(5)
-                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(-48,-12, Math.toRadians(180)))
-                .waitSeconds(3)
-                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
-                .lineToSplineHeading(new Pose2d(48,-12, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,12, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,34, Math.toRadians(180)))
                 .build();
 
 
