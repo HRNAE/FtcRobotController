@@ -62,13 +62,15 @@ public class redRightOpenCV45pts extends LinearOpMode {
         SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
         Pose2d startPose2 = new Pose2d(12, -36, 270);
+        Pose2d startPose3 = new Pose2d(12, -60, 270);
+        Pose2d startPose4 = new Pose2d(12, -60, 270);
         Pose2d startPose1 = new Pose2d(12, -60, 270);
 
         //drive.setPoseEstimate(startPose);
         TrajectorySequence forward = drive.trajectorySequenceBuilder(startPose1)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
                 .build();
-        TrajectorySequence left = drive.trajectorySequenceBuilder(startPose2)
+        TrajectorySequence left = drive.trajectorySequenceBuilder(startPose1)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
 
 
@@ -85,14 +87,17 @@ public class redRightOpenCV45pts extends LinearOpMode {
                 .waitSeconds(2)
                 .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .strafeRight(5)
-                .waitSeconds(2)
-                .strafeLeft(5.5)
+                .waitSeconds(5)
+                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
                 .lineToSplineHeading(new Pose2d(-48,-34, Math.toRadians(180)))
                 .waitSeconds(3)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,-34, Math.toRadians(180)))
                 .build();
 
-        TrajectorySequence right = drive.trajectorySequenceBuilder(startPose2)
+        TrajectorySequence right = drive.trajectorySequenceBuilder(startPose1)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
                 .back(25)
 
@@ -108,13 +113,16 @@ public class redRightOpenCV45pts extends LinearOpMode {
                 .waitSeconds(2)
                 .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
                 .strafeLeft(7)
-                .waitSeconds(2)
-                .strafeRight(7)
+                .waitSeconds(5)
+                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
                 .lineToSplineHeading(new Pose2d(-48,-34, Math.toRadians(180)))
                 .waitSeconds(3)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,-34, Math.toRadians(180)))
                 .build();
-        TrajectorySequence center = drive.trajectorySequenceBuilder(startPose2)
+        TrajectorySequence center = drive.trajectorySequenceBuilder(startPose1)
                 .lineToSplineHeading(new Pose2d(12,-34,Math.toRadians(180)))
                 .lineToSplineHeading(new Pose2d(25,-25,Math.toRadians(180)))
 
@@ -128,11 +136,13 @@ public class redRightOpenCV45pts extends LinearOpMode {
                 })
 
                 .waitSeconds(2)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
-                .waitSeconds(2)
+                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
                 .lineToSplineHeading(new Pose2d(-48,-34, Math.toRadians(180)))
                 .waitSeconds(3)
-                .lineToSplineHeading(new Pose2d(48, -34, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(-48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,0, Math.toRadians(180)))
+                .lineToSplineHeading(new Pose2d(48,-34, Math.toRadians(180)))
                 .build();
 
 
